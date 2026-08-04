@@ -1,10 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light" data-theme-mode="system">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A directory of live websites published under morid1n.github.io.">
   <meta name="theme-color" content="#f4f0e8">
+  <script>
+    (() => {
+      try {
+        const stored = localStorage.getItem('morid1n-theme-mode');
+        const mode = ['system', 'light', 'dark'].includes(stored) ? stored : 'system';
+        const theme = mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : mode === 'system' ? 'light' : mode;
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.dataset.themeMode = mode;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+        document.documentElement.dataset.themeMode = 'system';
+      }
+    })();
+  </script>
   <link rel="icon" type="image/png" href="assets/nadgryzieni-logo-rounded.png">
   <link rel="stylesheet" href="style.css">
   <title>Morid1n — Websites</title>
@@ -18,6 +34,14 @@
         <p class="eyebrow">morid1n.github.io</p>
         <h1>Websites by Morid1n</h1>
         <p class="lede">A small collection of live projects, archives, and experiments published on GitHub Pages.</p>
+        <div class="theme-controls" role="group" aria-label="Color theme">
+          <span class="theme-controls-label">Theme</span>
+          <div class="theme-buttons">
+            <button class="theme-button" type="button" data-theme-choice="system" aria-pressed="true">System</button>
+            <button class="theme-button" type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+            <button class="theme-button" type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+          </div>
+        </div>
       </div>
       <a class="profile-avatar" href="https://github.com/Morid1n" aria-label="Open Morid1n's GitHub profile">
         <img src="assets/morid1n-github-avatar.jpg" width="104" height="104" alt="Morid1n's GitHub avatar">
@@ -73,5 +97,6 @@
       <a href="https://github.com/Morid1n">GitHub profile <span aria-hidden="true">↗</span></a>
     </div>
   </footer>
+  <script src="script.js" defer></script>
 </body>
 </html>
