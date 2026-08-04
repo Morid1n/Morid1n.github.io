@@ -63,6 +63,80 @@ body {
     linear-gradient(135deg, rgba(255, 255, 255, 0.24), transparent 58%);
 }
 
+.header-shell {
+  position: relative;
+}
+
+.top-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: clamp(34px, 6vw, 74px);
+}
+
+.language-toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+}
+
+.language-toggle button,
+.theme-toggle {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.language-toggle button {
+  min-width: 34px;
+  padding: 7px 9px;
+}
+
+.language-toggle button:hover,
+.language-toggle button:focus-visible,
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--ink);
+}
+
+.language-toggle button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--accent);
+}
+
+.theme-icon {
+  display: inline-grid;
+  width: 1rem;
+  place-items: center;
+  font-size: 1rem;
+  line-height: 1;
+}
+
 .header-row {
   display: flex;
   align-items: flex-start;
@@ -128,55 +202,11 @@ h1 {
   font-size: clamp(1.05rem, 2vw, 1.3rem);
 }
 
-.theme-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin-top: 30px;
-}
-
-.theme-controls-label {
-  color: var(--muted);
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.7rem;
-  font-weight: 650;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.theme-buttons {
-  display: inline-flex;
-  gap: 2px;
-  padding: 3px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--card);
-}
-
-.theme-button {
-  padding: 7px 12px;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: var(--muted);
-  font-size: 0.76rem;
-  font-weight: 700;
-  line-height: 1.2;
-  transition: background-color 160ms ease, color 160ms ease;
-}
-
-.theme-button:hover,
-.theme-button:focus-visible {
-  color: var(--ink);
-}
-
-.theme-button[aria-pressed="true"] {
-  background: var(--ink);
-  color: var(--paper);
-}
-
 .content { padding: 76px 0 104px; }
+
+.other-projects {
+  margin-top: 104px;
+}
 
 .section-heading {
   display: flex;
@@ -273,6 +303,31 @@ h2 {
   font-size: 3.3rem;
   font-weight: 780;
   line-height: 1;
+}
+
+.project-mark {
+  font-size: 2rem;
+  letter-spacing: -0.08em;
+}
+
+.project-mark--imagazine {
+  background: #f1d8bf;
+  color: #9a3e23;
+}
+
+.project-mark--diaries {
+  background: #cfe1df;
+  color: #1b4f52;
+}
+
+.project-mark--instagram {
+  background: linear-gradient(135deg, #f9ce34, #ee2a7b 52%, #6228d7);
+  color: #fffaf4;
+}
+
+.project-mark--nadgryzieni {
+  background: #f2c7a7;
+  color: #7a2d20;
 }
 
 h3 {

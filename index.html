@@ -1,23 +1,22 @@
 <!doctype html>
-<html lang="en" data-theme="light" data-theme-mode="system">
+<html lang="en" data-theme="light" data-lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A directory of live websites published under morid1n.github.io.">
+  <meta name="description" content="A directory of live websites, projects, and places connected with Morid1n.">
   <meta name="theme-color" content="#f4f0e8">
   <script>
     (() => {
       try {
-        const stored = localStorage.getItem('morid1n-theme-mode');
-        const mode = ['system', 'light', 'dark'].includes(stored) ? stored : 'system';
-        const theme = mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'dark'
-          : mode === 'system' ? 'light' : mode;
+        const language = localStorage.getItem('morid1n-language') === 'pl' ? 'pl' : 'en';
+        const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.lang = language;
+        document.documentElement.dataset.lang = language;
         document.documentElement.dataset.theme = theme;
-        document.documentElement.dataset.themeMode = mode;
       } catch (error) {
+        document.documentElement.lang = 'en';
+        document.documentElement.dataset.lang = 'en';
         document.documentElement.dataset.theme = 'light';
-        document.documentElement.dataset.themeMode = 'system';
       }
     })();
   </script>
@@ -26,75 +25,150 @@
   <title>Morid1n — Websites</title>
 </head>
 <body>
-  <a class="skip-link" href="#sites">Skip to websites</a>
+  <a class="skip-link" href="#sites" data-i18n="skipSites">Skip to websites</a>
 
   <header class="site-header">
-    <div class="wrap header-row">
-      <div class="header-copy">
-        <p class="eyebrow">morid1n.github.io</p>
-        <h1>Websites by Morid1n</h1>
-        <p class="lede">A small collection of live projects, archives, and experiments published on GitHub Pages.</p>
-        <div class="theme-controls" role="group" aria-label="Color theme">
-          <span class="theme-controls-label">Theme</span>
-          <div class="theme-buttons">
-            <button class="theme-button" type="button" data-theme-choice="system" aria-pressed="true">System</button>
-            <button class="theme-button" type="button" data-theme-choice="light" aria-pressed="false">Light</button>
-            <button class="theme-button" type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
-          </div>
+    <div class="wrap header-shell">
+      <div class="top-controls">
+        <div class="language-toggle" role="group" aria-label="Language" data-i18n-aria-label="languageLabel">
+          <button type="button" data-language-choice="en" aria-pressed="true">EN</button>
+          <button type="button" data-language-choice="pl" aria-pressed="false">PL</button>
         </div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+          <span id="theme-label">Dark</span>
+        </button>
       </div>
-      <a class="profile-avatar" href="https://github.com/Morid1n" aria-label="Open Morid1n's GitHub profile">
-        <img src="assets/morid1n-github-avatar.jpg" width="104" height="104" alt="Morid1n's GitHub avatar">
-      </a>
+
+      <div class="header-row">
+        <div class="header-copy">
+          <p class="eyebrow">morid1n.github.io</p>
+          <h1 data-i18n="heroTitle">A home for projects worth revisiting.</h1>
+          <p class="lede" data-i18n="heroLede">A small collection of live projects, archives, and experiments published on GitHub Pages.</p>
+        </div>
+        <a class="profile-avatar" href="https://github.com/Morid1n" aria-label="Open Morid1n's GitHub profile" data-i18n-aria-label="githubAvatarLabel">
+          <img src="assets/morid1n-github-avatar.jpg" width="104" height="104" alt="Morid1n's GitHub avatar" data-i18n-alt="githubAvatarAlt">
+        </a>
+      </div>
     </div>
   </header>
 
   <main id="sites" class="wrap content">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">LIVE SITES</p>
-        <h2>Explore the collection</h2>
+    <section aria-labelledby="sites-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="liveSites">LIVE SITES</p>
+          <h2 id="sites-title" data-i18n="exploreCollection">Explore the collection</h2>
+        </div>
+        <p class="section-note" data-i18n="liveSitesNote">Two public sites are currently available under this domain.</p>
       </div>
-      <p class="section-note">Two public sites are currently available under this domain.</p>
-    </div>
 
-    <ul class="site-grid">
-      <li class="site-card site-card--featured">
-        <div class="card-meta">
-          <span class="site-number">01</span>
-          <span class="status"><span class="status-dot" aria-hidden="true"></span>Live</span>
-        </div>
-        <img class="site-logo" src="assets/nadgryzieni-logo-rounded.png" width="88" height="88" alt="Nadgryzieni logo">
-        <h3>Nadgryzieni Episode Archive</h3>
-        <p>An interactive archive of Nadgryzieni podcast episodes, with timelines, listening-time statistics, and searchable episode records.</p>
-        <div class="card-links">
-          <a class="primary-link" href="https://morid1n.github.io/nadgryzieni-episode-archive/">Open site <span aria-hidden="true">↗</span></a>
-          <a class="secondary-link" href="https://github.com/Morid1n/nadgryzieni-episode-archive">Source <span aria-hidden="true">↗</span></a>
-        </div>
-        <p class="site-url">morid1n.github.io/nadgryzieni-episode-archive/</p>
-      </li>
+      <ul class="site-grid">
+        <li class="site-card site-card--featured">
+          <div class="card-meta">
+            <span class="site-number">01</span>
+            <span class="status"><span class="status-dot" aria-hidden="true"></span><span class="status-label" data-i18n="live">Live</span></span>
+          </div>
+          <img class="site-logo" src="assets/nadgryzieni-logo-rounded.png" width="88" height="88" alt="Nadgryzieni logo" data-i18n-alt="nadgryzieniLogoAlt">
+          <h3>Nadgryzieni Episode Archive</h3>
+          <p data-i18n="nadgryzieniDescription">An interactive archive of Nadgryzieni podcast episodes, with timelines, listening-time statistics, and searchable episode records.</p>
+          <div class="card-links">
+            <a class="primary-link" href="https://morid1n.github.io/nadgryzieni-episode-archive/"><span data-i18n="openSite">Open site</span> <span aria-hidden="true">↗</span></a>
+            <a class="secondary-link" href="https://github.com/Morid1n/nadgryzieni-episode-archive"><span data-i18n="source">Source</span> <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="site-url">morid1n.github.io/nadgryzieni-episode-archive/</p>
+        </li>
 
-      <li class="site-card">
-        <div class="card-meta">
-          <span class="site-number">02</span>
-          <span class="status"><span class="status-dot" aria-hidden="true"></span>Live</span>
+        <li class="site-card">
+          <div class="card-meta">
+            <span class="site-number">02</span>
+            <span class="status"><span class="status-dot" aria-hidden="true"></span><span class="status-label" data-i18n="live">Live</span></span>
+          </div>
+          <div class="site-mark" aria-hidden="true">S</div>
+          <h3>Subjective</h3>
+          <p data-i18n="subjectiveDescription">An early static-publishing experiment exploring alternatives to WordPress and lightweight blogging workflows.</p>
+          <div class="card-links">
+            <a class="primary-link" href="https://morid1n.github.io/Subjective/"><span data-i18n="openSite">Open site</span> <span aria-hidden="true">↗</span></a>
+            <a class="secondary-link" href="https://github.com/Morid1n/Subjective"><span data-i18n="source">Source</span> <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="site-url">morid1n.github.io/Subjective/</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="other-projects" aria-labelledby="other-projects-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="otherProjects">OTHER PROJECTS</p>
+          <h2 id="other-projects-title" data-i18n="otherProjectsTitle">Other projects</h2>
         </div>
-        <div class="site-mark" aria-hidden="true">S</div>
-        <h3>Subjective</h3>
-        <p>An early static-publishing experiment exploring alternatives to WordPress and lightweight blogging workflows.</p>
-        <div class="card-links">
-          <a class="primary-link" href="https://morid1n.github.io/Subjective/">Open site <span aria-hidden="true">↗</span></a>
-          <a class="secondary-link" href="https://github.com/Morid1n/Subjective">Source <span aria-hidden="true">↗</span></a>
-        </div>
-        <p class="site-url">morid1n.github.io/Subjective/</p>
-      </li>
-    </ul>
+        <p class="section-note" data-i18n="otherProjectsNote">A few other places and projects worth exploring.</p>
+      </div>
+
+      <ul class="site-grid">
+        <li class="site-card">
+          <div class="card-meta">
+            <span class="site-number">01</span>
+            <span class="status"><span class="status-dot" aria-hidden="true"></span><span class="status-label" data-i18n="external">External</span></span>
+          </div>
+          <div class="site-mark project-mark project-mark--imagazine" aria-hidden="true">iM</div>
+          <h3>iMagazine.pl</h3>
+          <p data-i18n="imagazineDescription">Technology, lifestyle, travel, and art.</p>
+          <div class="card-links">
+            <a class="primary-link" href="https://imagazine.pl" target="_blank" rel="noreferrer"><span data-i18n="visitSite">Visit site</span> <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="site-url">imagazine.pl</p>
+        </li>
+
+        <li class="site-card">
+          <div class="card-meta">
+            <span class="site-number">02</span>
+            <span class="status"><span class="status-dot" aria-hidden="true"></span><span class="status-label" data-i18n="external">External</span></span>
+          </div>
+          <div class="site-mark project-mark project-mark--diaries" aria-hidden="true">ID</div>
+          <h3>Infinite Diaries</h3>
+          <p data-i18n="infiniteDiariesDescription">Technology, photography, and travel.</p>
+          <div class="card-links">
+            <a class="primary-link" href="https://infinitediaries.net" target="_blank" rel="noreferrer"><span data-i18n="visitSite">Visit site</span> <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="site-url">infinitediaries.net</p>
+        </li>
+
+        <li class="site-card">
+          <div class="card-meta">
+            <span class="site-number">03</span>
+            <span class="status"><span class="status-dot" aria-hidden="true"></span><span class="status-label" data-i18n="external">External</span></span>
+          </div>
+          <div class="site-mark project-mark project-mark--instagram" aria-hidden="true">IG</div>
+          <h3>Instagram</h3>
+          <p data-i18n="instagramDescription">Wojciech Pietrusiewicz on Instagram.</p>
+          <div class="card-links">
+            <a class="primary-link" href="https://instagram.com/moridin" target="_blank" rel="noreferrer"><span data-i18n="visitSite">Visit site</span> <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="site-url">instagram.com/moridin</p>
+        </li>
+
+        <li class="site-card">
+          <div class="card-meta">
+            <span class="site-number">04</span>
+            <span class="status"><span class="status-dot" aria-hidden="true"></span><span class="status-label" data-i18n="external">External</span></span>
+          </div>
+          <div class="site-mark project-mark project-mark--nadgryzieni" aria-hidden="true">N</div>
+          <h3>Nadgryzieni podcast</h3>
+          <p data-i18n="podcastDescription">Nadgryzieni podcast episodes on Retro Rocket Network.</p>
+          <div class="card-links">
+            <a class="primary-link" href="https://retrorocketnetwork.pl/category/nadgryzieni/" target="_blank" rel="noreferrer"><span data-i18n="visitSite">Visit site</span> <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="site-url">retrorocketnetwork.pl/category/nadgryzieni/</p>
+        </li>
+      </ul>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <p>Published on GitHub Pages.</p>
-      <a href="https://github.com/Morid1n">GitHub profile <span aria-hidden="true">↗</span></a>
+      <p data-i18n="published">Published on GitHub Pages.</p>
+      <a href="https://github.com/Morid1n"><span data-i18n="githubProfile">GitHub profile</span> <span aria-hidden="true">↗</span></a>
     </div>
   </footer>
   <script src="script.js" defer></script>
