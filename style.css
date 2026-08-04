@@ -295,6 +295,30 @@ h2 {
 
 .site-logo { object-fit: cover; }
 
+.project-logo {
+  display: block;
+  width: 220px;
+  height: 88px;
+  padding: 10px 16px;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  background: #fff;
+  object-fit: contain;
+}
+
+.project-logo--square,
+.project-logo--avatar {
+  width: 88px;
+  padding: 0;
+  object-fit: cover;
+}
+
+.project-logo--mastodon {
+  width: 88px;
+  padding: 16px;
+  background: #6364ff;
+}
+
 .site-mark {
   display: grid;
   place-items: center;
@@ -303,31 +327,6 @@ h2 {
   font-size: 3.3rem;
   font-weight: 780;
   line-height: 1;
-}
-
-.project-mark {
-  font-size: 2rem;
-  letter-spacing: -0.08em;
-}
-
-.project-mark--imagazine {
-  background: #f1d8bf;
-  color: #9a3e23;
-}
-
-.project-mark--diaries {
-  background: #cfe1df;
-  color: #1b4f52;
-}
-
-.project-mark--instagram {
-  background: linear-gradient(135deg, #f9ce34, #ee2a7b 52%, #6228d7);
-  color: #fffaf4;
-}
-
-.project-mark--nadgryzieni {
-  background: #f2c7a7;
-  color: #7a2d20;
 }
 
 h3 {
