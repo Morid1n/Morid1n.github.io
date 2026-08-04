@@ -313,6 +313,11 @@ h2 {
   object-fit: cover;
 }
 
+.project-logo--imagazine {
+  padding: 6px;
+  object-fit: contain;
+}
+
 .project-logo--mastodon {
   width: 88px;
   padding: 16px;
