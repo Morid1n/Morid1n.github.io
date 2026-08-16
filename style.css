@@ -241,6 +241,23 @@ h2 {
   list-style: none;
 }
 
+@media (min-width: 701px) {
+  .live-sites-grid .site-card--readership {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .live-sites-grid .site-card--featured {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .live-sites-grid .site-card--subjective {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
 .site-card {
   display: flex;
   flex-direction: column;
