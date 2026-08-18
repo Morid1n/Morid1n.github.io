@@ -247,14 +247,9 @@ h2 {
     grid-row: 1;
   }
 
-  .live-sites-grid .site-card--readership {
+  .live-sites-grid .site-card--subjective {
     grid-column: 2;
     grid-row: 1;
-  }
-
-  .live-sites-grid .site-card--subjective {
-    grid-column: 1;
-    grid-row: 2;
   }
 }
 
